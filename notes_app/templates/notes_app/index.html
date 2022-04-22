@@ -1,0 +1,16 @@
+{% extends "notes_app/layout.html" %}
+
+{% load static %}
+
+{% block script %}<script src="{% static 'notes_app/notes.js' %}" defer></script>{% endblock %}
+
+{% block body %}
+    <div class="add">
+        <form method="post">
+            <input type="text" name="title" placeholder="Title">
+            <input type="textarea" name="content" placeholder="Content">
+            <input type="submit" value="Add" data-submit="true">
+        </form>
+    </div>
+    <div class="notes"></div>
+{% endblock %}
