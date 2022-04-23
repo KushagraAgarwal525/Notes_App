@@ -7,9 +7,16 @@
 {% block body %}
     <div class="add">
         <form method="post">
-            <input type="text" name="title" placeholder="Title">
-            <input type="textarea" name="content" placeholder="Content">
-            <input type="submit" value="Add" data-submit="true">
+            <div>
+                <input type="text" name="title" placeholder="Title">
+            </div>
+            <!-- <input type="textarea" name="content" placeholder="Content"> -->
+            <div class="addcontent">
+                <textarea name="content" placeholder="Content"></textarea>
+            </div>
+            <div>
+                <input type="submit" value="Add" data-submit="true">
+            </div>
         </form>
     </div>
     <div class="notes"></div>

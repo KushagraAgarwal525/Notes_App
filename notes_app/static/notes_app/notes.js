@@ -1,7 +1,7 @@
 document.querySelector("form").addEventListener('submit', async e => {
     e.preventDefault();
     const title = document.querySelector("form input[name='title']").value;
-    const content = document.querySelector("form input[name='content']").value;
+    const content = document.querySelector("form textarea[name='content']").value;
     if (content.length == 0) return
     const note = {
         title: title,
@@ -13,7 +13,8 @@ document.querySelector("form").addEventListener('submit', async e => {
     })
     request = await request.json();
     if (request.status == 0) {
-        document.querySelectorAll("form input").forEach(field => (!field.dataset["submit"]) ? field.value = "": null);
+        document.querySelectorAll("form input, form textarea").forEach(field => (!field.dataset["submit"]) ? field.value = "": null);
+        document.querySelector("form textarea").style.height = "30px";
         await updateNoteList();
         await addOnClicks();
         return;
