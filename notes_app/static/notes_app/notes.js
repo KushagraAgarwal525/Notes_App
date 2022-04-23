@@ -118,6 +118,13 @@ async function addOnClicks() {
                 }
             })
             document.querySelector(`.note-actions[data-id="${noteId.id}"]`).appendChild(noteSaveButton);
+            const noteCancelEditButton = document.createElement("button");
+            noteCancelEditButton.classList.add("note-cancel-edit");
+            noteCancelEditButton.dataset.id = noteId.id;
+            noteCancelEditButton.innerHTML = "&#x2715;";
+            noteCancelEditButton.addEventListener('click', async e => {await updateNoteList(); await addOnClicks();})
+            document.querySelector(`.note-actions[data-id="${noteId.id}"]`).appendChild(noteCancelEditButton);
+
         });
     })
 }
